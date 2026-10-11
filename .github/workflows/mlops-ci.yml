@@ -36,7 +36,8 @@ jobs:
       - name: Verify saved model
         run: |
           python -c "import os; assert os.path.isfile('iris_model.pkl'), 'Model file was not created'; print('Model file created successfully')"
-
+      - name: Evaluate model accuracy
+        run: python evaluate_model.py
       - name: Upload trained model
         uses: actions/upload-artifact@v4
         with:
